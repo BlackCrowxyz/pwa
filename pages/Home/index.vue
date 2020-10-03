@@ -1,6 +1,6 @@
 <template>
   <v-sheet
-    class="d-flex flex-column white--text"
+    class="d-flex flex-column mx-auto white--text"
     color="deep-purple"
     max-height="30rem"
     max-width="50rem"

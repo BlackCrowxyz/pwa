@@ -1,11 +1,11 @@
 <template>
   <v-sheet
     max-width="50rem"
-    class="d-flex flex-column"
+    class="d-flex flex-column mx-auto"
     max-height="30rem"
   >
     <v-card dir="ltr" outlined>
-      <v-img aspect-ratio="2.1" src="/Images/Pouya.jpg"> </v-img>
+      <v-img aspect-ratio="2.4" src="/Images/Pouya.jpg"> </v-img>
       <v-card-title> Pouya Mohammadkhani </v-card-title>
       <v-card-subtitle>
         <strong>Computer Engineering</strong> from

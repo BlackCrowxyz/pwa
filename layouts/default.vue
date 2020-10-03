@@ -91,8 +91,8 @@ export default {
         },
         {
           icon: "mdi-xml",
-          title: "Dev",
-          to: "/dev",
+          title: "Develope",
+          to: "/develope",
         },
         {
           icon: "mdi-account-tie",

@@ -37,18 +37,30 @@
       </v-container>
     </v-main>
 
-    <v-footer class="pa-0" fix app>
+    <!-- <v-footer class="pa-0" fix app>
       <v-card class="d-flex grow">
         <v-tabs v-model="tab" background-color="deep-purple accent-4" centered dark grow icons-and-text>
-          <!-- <v-tabs-slider color="yellow"></v-tabs-slider> -->
-
           <v-tab v-for="(item, i) in items" :key="i" :to="item.to">
             {{item.title}}
             <v-icon>{{item.icon}}</v-icon>
           </v-tab>
         </v-tabs>
       </v-card>
-    </v-footer>
+    </v-footer> -->
+    <v-bottom-navigation
+      background-color="red"
+      color="yellow"
+      app
+      grow
+      shift
+      dark
+      hide-on-scroll
+    >
+      <v-btn v-for="item in items" :key="item.title" :to="item.to">
+        <span>{{ item.title }}</span>
+        <v-icon>{{ item.icon }}</v-icon>
+      </v-btn>
+    </v-bottom-navigation>
   </v-app>
 </template>
 
@@ -56,37 +68,36 @@
 export default {
   data() {
     return {
-      tab: 2,
       // text:
       //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       clipped: false,
       drawer: false,
       fixed: false,
       items: [
-        {
-          icon: "mdi-dots-horizontal",
-          title: "بقیه",
-          to: "/Other",
-        },
+        // {
+        //   icon: "mdi-dots-horizontal",
+        //   title: "بقیه",
+        //   to: "/Other",
+        // },
         {
           icon: "mdi-palette",
-          title: "طراحی‌",
-          to: "/Design",
+          title: "Design",
+          to: "/design",
         },
         {
           icon: "mdi-home",
-          title: "خانه",
-          to: "/Home",
+          title: "Home",
+          to: "/home",
         },
         {
           icon: "mdi-xml",
-          title: "برنامه‌نویسی",
-          to: "/Programming",
+          title: "Dev",
+          to: "/dev",
         },
         {
           icon: "mdi-account-tie",
-          title: "درباره من",
-          to: "/About",
+          title: "About Me",
+          to: "/about",
         },
       ],
       miniVariant: false,

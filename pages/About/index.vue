@@ -1,11 +1,23 @@
 <template>
   <v-sheet
     max-width="50rem"
-    class="d-flex flex-row mx-auto my-10"
+    class="d-flex flex-column"
     max-height="30rem"
   >
-    <v-card max-width="45%" class="ma-4" dir="ltr" outlined>
-      <v-card-title class="mb-10"> Ways to reach me: </v-card-title>
+    <v-card dir="ltr" outlined>
+      <v-img aspect-ratio="2.1" src="/Images/Pouya.jpg"> </v-img>
+      <v-card-title> Pouya Mohammadkhani </v-card-title>
+      <v-card-subtitle>
+        <strong>Computer Engineering</strong> from
+        <strong>Shahid Beheshti University</strong>
+      </v-card-subtitle>
+      <v-card-text>
+        Welcome to my personal page, I hope you enjoy my works.
+      </v-card-text>
+    </v-card>
+
+    <v-card class="mt-2" dir="ltr" outlined>
+      <v-card-title> Ways to reach me: 😊 🔥 </v-card-title>
       <v-card-text>
         <strong>
           <v-icon>mdi-telegram</v-icon>
@@ -23,18 +35,6 @@
           <!-- P.Mohammadkhani95 [at] gmail.com -->
           P.Mohammadkhani95 <v-icon dense small>mdi-at</v-icon> gmail.com
         </a>
-      </v-card-text>
-    </v-card>
-
-    <v-card max-width="45%" class="ma-4" dir="ltr" outlined>
-      <v-img aspect-ratio="2.1" src="/Images/Pouya.jpg"> </v-img>
-      <v-card-title> Pouya Mohammadkhani </v-card-title>
-      <v-card-subtitle>
-        <strong>Computer Engineering</strong> from
-        <strong>Shahid Beheshti University</strong>
-      </v-card-subtitle>
-      <v-card-text>
-        Welcome to my personal page, I hope you enjoy my works.
       </v-card-text>
     </v-card>
   </v-sheet>

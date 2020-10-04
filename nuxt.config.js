@@ -53,7 +53,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
-    "@nuxtjs/pwa"
+    "@nuxtjs/pwa",
   ],
   /*
    ** Axios module configuration
@@ -66,7 +66,7 @@ export default {
    */
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
-    rtl: true,
+    // rtl: true,
     theme: {
       themes: {
         light: {

@@ -4,7 +4,7 @@
     class="d-flex flex-column mx-auto"
     max-height="30rem"
   >
-    <v-card dir="ltr" outlined>
+    <v-card  outlined>
       <v-img aspect-ratio="2.4" src="/Images/Pouya.jpg"> </v-img>
       <v-card-title> Pouya Mohammadkhani </v-card-title>
       <v-card-subtitle>
@@ -16,7 +16,7 @@
       </v-card-text>
     </v-card>
 
-    <v-card class="mt-2" dir="ltr" outlined>
+    <v-card class="mt-2"  outlined>
       <v-card-title> Ways to reach me: 😊 🔥 </v-card-title>
       <v-card-text>
         <strong>

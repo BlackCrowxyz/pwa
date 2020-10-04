@@ -1,5 +1,5 @@
 <template>
-  <div dir="ltr" class="mx-auto">
+  <div  class="mx-auto">
     <v-card outlined rounded>
       <v-card-title> Pouya Mohammadkhani </v-card-title>
       <v-card-subtitle> My personal webpage </v-card-subtitle>

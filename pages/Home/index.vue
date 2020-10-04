@@ -2,7 +2,6 @@
   <v-sheet
     class="d-flex flex-column mx-auto white--text"
     color="deep-purple"
-    max-height="30rem"
     max-width="50rem"
     rounded
   >
@@ -78,21 +77,81 @@
         <!-- <v-divider></v-divider> -->
       </v-timeline-item>
     </v-timeline>
-    <v-fab-transition>
+
+    <v-speed-dial
+      v-model="fab"
+      bottom
+      right
+      dark
+      direction="top"
+      open-on-hover
+      transition="slide-y-reverse-transition"
+      fixed
+    >
+      <template #activator>
+        <v-btn v-model="fab" class="mb-16" color="red" dark fab
+          ><v-icon v-if="!fab">mdi-plus</v-icon
+          ><v-icon v-else>mdi-close</v-icon></v-btn
+        >
+      </template>
       <v-btn
-        v-show="!hidden"
-        class="mb-13"
-        color="pink"
+        v-for="btn in dialBtns"
+        :color="btn.color"
+        :key="btn.icon"
+        @click="btn.func"
         dark
-        fixed
-        bottom
-        right
         fab
         small
+        ><v-icon>{{ btn.icon }}</v-icon></v-btn
       >
-        <v-icon>mdi-plus</v-icon>
-      </v-btn>
-    </v-fab-transition>
+    </v-speed-dial>
+
+    <v-dialog
+      v-model="dialog"
+      persistent
+      :overlay="false"
+      max-width="20rem"
+      transition="dialog-transition"
+    >
+      <v-card>
+        <v-card-title class="text-body-1">
+          Add new item to timeline
+        </v-card-title>
+        <v-card-text>
+          <div class="d-flex flex-column">
+            <v-card-subtitle>Time</v-card-subtitle>
+            <v-text-field
+              v-model="time"
+              :rules="[rules.required, rules.number]"
+              dense
+              outlined
+              required
+            ></v-text-field>
+            <v-card-subtitle>Title</v-card-subtitle>
+            <v-text-field
+              v-model="text"
+              :rules="[rules.required]"
+              dense
+              outlined
+              required
+            ></v-text-field>
+            <v-card-actions class="pa-0">
+              <v-btn block depressed dark color="amber" @click="addToWorks"
+                >Add</v-btn
+              >
+            </v-card-actions>
+          </div>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+    <v-snackbar v-model="snackbar" timeout="4000">
+      New item added !
+      <template v-slot:action="{ attrs }">
+        <v-btn color="yellow" text v-bind="attrs" @click="snackbar = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
     <!-- </v-card-text> -->
     <!-- </v-card> -->
   </v-sheet>
@@ -102,9 +161,14 @@
 export default {
   data() {
     return {
-      isEdit: false,
-      isNewItem: false,
-
+      snackbar: false,
+      dialog: false,
+      fab: false,
+      dialBtns: [
+        // { icon: "mdi-pencil", color: "green", func: this.AddItem },
+        // { icon: "mdi-delete", color: "red", func: this.AddItem },
+        { icon: "mdi-plus", color: "amber", func: this.AddItem },
+      ],
       works: [
         { time: "2020", text: "🏢 HiMart Company" },
         { time: "2020", text: "👨‍🎓 Graduated from Shahid Beheshti University" },
@@ -112,10 +176,11 @@ export default {
         { time: "2018", text: "🎉 Front-end Developement" },
         { time: "2016", text: "🤩 Entering University" },
         { time: "2016", text: "✔️ Konkoor" },
+        { time: "2016", text: "✔️ Konkoor" },
+        { time: "2016", text: "✔️ Konkoor" },
+        { time: "2016", text: "✔️ Konkoor" },
       ],
-
       time: "",
-      title: "",
       text: "",
       rules: {
         required: (value) => !!value || "Can't be empty",
@@ -132,21 +197,17 @@ export default {
     },
   },
   methods: {
+    AddItem() {
+      console.log("Add clicked");
+      this.dialog = true;
+    },
     addToWorks() {
       this.works.unshift({
         time: this.time,
-        title: this.title,
         text: this.text,
       });
-    },
-    updateLayout(cmd) {
-      if (cmd == "new-item") {
-        this.isNewItem = !this.isNewItem;
-        this.isEdit = false;
-      } else if (cmd == "edit") {
-        this.isEdit = !this.isEdit;
-        this.isNewItem = false;
-      }
+      this.dialog = false;
+      this.snackbar = true;
     },
   },
 };

@@ -30,7 +30,7 @@
               class="px-4"
             >
               <v-list-item-content>
-                <v-list-item-title dir="ltr" class="d-flex align-center">
+                <v-list-item-title  class="d-flex align-center">
                   <v-icon class="px-1">{{ child.icon }}</v-icon>
                   <span class="px-1">{{ child.title }}</span>
                   <v-progress-linear

@@ -1,8 +1,9 @@
 <template>
   <v-sheet
-    class="d-flex flex-column mx-auto white--text"
+  
+    class="d-flex flex-column mx-auto mt-sm-10 white--text"
     color="deep-purple"
-    max-width="50rem"
+    max-width="40rem"
     rounded
   >
     <!-- Add to works -->

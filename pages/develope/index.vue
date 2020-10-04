@@ -1,5 +1,5 @@
 <template>
-  <v-sheet max-width="50rem" class="d-flex flex-column mx-auto">
+  <v-sheet max-width="40rem" class="d-flex flex-column mx-auto mt-sm-10">
     <v-card class="my-2" outlined color="amber darken-1" dark>
       <v-card-title>
         <v-icon right>mdi-file-account</v-icon>
@@ -30,7 +30,7 @@
               class="px-4"
             >
               <v-list-item-content>
-                <v-list-item-title  class="d-flex align-center">
+                <v-list-item-title class="d-flex align-center">
                   <v-icon class="px-1">{{ child.icon }}</v-icon>
                   <span class="px-1">{{ child.title }}</span>
                   <v-progress-linear
@@ -59,15 +59,31 @@ export default {
             { title: "C/C++", icon: "mdi-language-cpp", val: 80 },
             { title: "Java", icon: "mdi-language-java", val: 60 },
             { title: "Python", icon: "mdi-language-python", val: 70 },
-            { title: "JavaScript", icon: "mdi-language-javascript", val: 80 },
-            { title: "CSS", icon: "mdi-language-css3", val: 60 },
-            { title: "HTML", icon: "mdi-language-html5", val: 90 },
+            { title: "JavaScript", icon: "mdi-language-javascript", val: 65 },
           ],
           title: "Languages",
         },
         {
+          title: "Front-end",
+          action: "mdi-monitor-cellphone-star",
+          items: [
+            { title: "Vuejs", icon: "mdi-vuejs" },
+            { title: "Nuxt", icon: "mdi-nuxt" },
+            { title: "Vuetify", icon: "mdi-vuetify" },
+            { title: "Vuex", icon: "mdi-vector-union" },
+            { title: "JavaScript", icon: "mdi-language-javascript", val: 80 },
+            { title: "CSS", icon: "mdi-language-css3", val: 60 },
+            { title: "Bootstrap", icon: "mdi-bootstrap", val: 60 },
+            { title: "HTML", icon: "mdi-language-html5", val: 90 },
+          ],
+        },
+        {
           action: "mdi-briefcase",
-          items: [{ title: "IPM" }, { title: "Himart" }, { title: "?" }],
+          items: [
+            { title: "IPM", icon: "mdi-ip" },
+            { title: "Himart", icon: "mdi-hospital-marker" },
+            { title: "?" },
+          ],
           title: "Work Experience",
         },
       ],

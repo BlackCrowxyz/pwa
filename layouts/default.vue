@@ -47,20 +47,24 @@
         </v-tabs>
       </v-card>
     </v-footer> -->
-    <v-bottom-navigation
-      background-color="red"
-      color="yellow"
-      app
-      grow
-      shift
-      dark
-      hide-on-scroll
-    >
-      <v-btn v-for="item in items" :key="item.title" :to="item.to">
-        <span>{{ item.title }}</span>
-        <v-icon>{{ item.icon }}</v-icon>
-      </v-btn>
-    </v-bottom-navigation>
+    <section class="d-flex justify-center">
+      <v-bottom-navigation
+        background-color="red"
+        color="yellow"
+        app
+        grow
+        shift
+        dark
+        hide-on-scroll
+      >
+        <!-- max-width="40rem" -->
+        <!-- fixed -->
+        <v-btn v-for="item in items" :key="item.title" :to="item.to">
+          <span>{{ item.title }}</span>
+          <v-icon>{{ item.icon }}</v-icon>
+        </v-btn>
+      </v-bottom-navigation>
+    </section>
   </v-app>
 </template>
 
@@ -82,29 +86,36 @@ export default {
         {
           icon: "mdi-palette",
           title: "Design",
-          to: "/design",
+          to: "/design"
         },
         {
           icon: "mdi-home",
           title: "Home",
-          to: "/home",
+          to: "/home"
         },
         {
           icon: "mdi-xml",
           title: "Develope",
-          to: "/develope",
+          to: "/develope"
         },
         {
           icon: "mdi-account-tie",
           title: "About Me",
-          to: "/about",
-        },
+          to: "/about"
+        }
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: "Vuetify.js",
+      title: "Vuetify.js"
     };
-  },
+  }
 };
 </script>
+
+<style lang="scss">
+.v-item-group.v-bottom-navigation--fixed {
+  // position: relative;
+  border-radius: 25px 25px 0 0;
+}
+</style>

@@ -1,11 +1,33 @@
 <template>
   <v-sheet
-  
     class="d-flex flex-column mx-auto mt-sm-10 white--text"
     color="deep-purple"
     max-width="40rem"
     rounded
   >
+    <!-- <div
+      v-anime="{
+        rotate: '1turn',
+        backgroundColor: '#FFF',
+        duration: 2000,
+        loop: true
+      }"
+    >
+      <p class="yellow">Hello</p>
+    </div> -->
+
+    <div @click="call()" class="my-item">
+      <div id="emoji">😆😂</div>
+      
+      <svg id="demo-svg" width="400" height="700">
+        <path
+          stroke="red"
+          fill="none"
+          d="M 560 320 L 420 240 L 460 160 L 120 140 L 220 220 L 100 340 L 340 300 L 320 400 L 60 400 L 380 460 L 560 480 L 720 380 "
+        ></path>
+      </svg>
+    </div>
+
     <!-- Add to works -->
     <!-- <v-card class="d-flex justify-center" color="primary" outlined>
       <v-card-actions>
@@ -53,7 +75,8 @@
     <!-- Works -->
     <!-- <v-card color="deep-purple" outlined> -->
     <!-- <v-card-text class=""> -->
-    <v-timeline align-top dense>
+
+    <!-- <v-timeline align-top dense>
       <v-timeline-item
         v-for="item in works"
         :key="item.title"
@@ -64,22 +87,15 @@
           <v-col cols="12">
             <strong v-text="item.time" />
           </v-col>
-          <v-col cols="12">
-            <!-- <strong v-text="item.title" /> -->
+          <v-col cols="12"> 
             <span class="text-caption" v-text="item.text" />
           </v-col>
-          <!-- <v-col v-show="isEdit" sm="1" class="ma-1">
-                <v-btn depressed small color="deep-orange">ویرایش</v-btn>
-              </v-col>
-              <v-col v-show="isEdit" sm="1" class="ma-1">
-                <v-btn depressed small color="yellow">حذف</v-btn>
-              </v-col> -->
-        </v-row>
-        <!-- <v-divider></v-divider> -->
+           
+        </v-row> 
       </v-timeline-item>
-    </v-timeline>
+    </v-timeline> -->
 
-    <v-speed-dial
+    <!-- <v-speed-dial
       v-model="fab"
       bottom
       right
@@ -105,7 +121,7 @@
         small
         ><v-icon>{{ btn.icon }}</v-icon></v-btn
       >
-    </v-speed-dial>
+    </v-speed-dial> -->
 
     <v-dialog
       v-model="dialog"
@@ -168,7 +184,7 @@ export default {
       dialBtns: [
         // { icon: "mdi-pencil", color: "green", func: this.AddItem },
         // { icon: "mdi-delete", color: "red", func: this.AddItem },
-        { icon: "mdi-plus", color: "amber", func: this.AddItem },
+        { icon: "mdi-plus", color: "amber", func: this.AddItem }
       ],
       works: [
         { time: "2020", text: "🏢 HiMart Company" },
@@ -179,23 +195,23 @@ export default {
         { time: "2016", text: "✔️ Konkoor" },
         { time: "2016", text: "✔️ Konkoor" },
         { time: "2016", text: "✔️ Konkoor" },
-        { time: "2016", text: "✔️ Konkoor" },
+        { time: "2016", text: "✔️ Konkoor" }
       ],
       time: "",
       text: "",
       rules: {
-        required: (value) => !!value || "Can't be empty",
-        number: (value) => {
+        required: value => !!value || "Can't be empty",
+        number: value => {
           const pattern = /^.[0-9]{0,3}$/;
           return pattern.test(value) || "Just numbers";
-        },
-      },
+        }
+      }
     };
   },
   computed: {
     content() {
       return this.isEdit;
-    },
+    }
   },
   methods: {
     AddItem() {
@@ -205,12 +221,35 @@ export default {
     addToWorks() {
       this.works.unshift({
         time: this.time,
-        text: this.text,
+        text: this.text
       });
       this.dialog = false;
       this.snackbar = true;
     },
-  },
+    call() {
+      let targets = "#mi";
+      this.$anime
+        .timeline()
+        .add({
+          targets,
+          translateX: 250,
+          easing: "easeOutExpo"
+        })
+        .add({
+          targets,
+          translateX: 250,
+          easing: "easeOutExpo"
+        });
+      let path = this.$anime.path("#demo-svg path");
+      this.$anime({
+        targets: "#emoji",
+        translateX: path("x"),
+        translateY: path("y"),
+        easing: "linear",
+        duration: "4000"
+      });
+    }
+  }
 };
 </script>
 

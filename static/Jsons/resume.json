@@ -1,0 +1,21 @@
+{
+    "name": "Pouya Mohammadkhani",
+    "profileImg": "/Images/Pouya.jpg",
+    "bio": "I'm a Frontend developer who seeks new technologies and design. :laugh:",
+    "email": "p.mohammadkhani95@gmail.com",
+    "linkedIn": "https://www.linkedin.com/in/pouya-mohammadkhani-8877021b9",
+    "workExperience": [
+        {
+            "company": "Himart",
+            "startDate": "Sep 2020",
+            "endDate": "Now",
+            "tasks": "..."
+        },
+        {
+            "company": "IPM",
+            "startDate": "Sep 2019",
+            "endDate": "Oct 2020",
+            "tasks": "..."
+        }
+    ]
+}

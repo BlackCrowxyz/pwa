@@ -1,27 +1,28 @@
 <template>
-  <div  class="mx-auto">
-    <v-card outlined rounded>
-      <v-card-title> Pouya Mohammadkhani </v-card-title>
-      <v-card-subtitle> My personal webpage </v-card-subtitle>
-      <v-card-text class="py-3">
-        Welcome to my personal website. I am a Front-end developer.
-      </v-card-text>
-      <v-divider inset></v-divider>
-      <v-card-text class="py-3">
-        Feel free to visit my website and other tabs for more information.
-      </v-card-text>
-    </v-card>
-  </div>
+    <div class="mx-auto">
+        <MySummary />
+        <v-container>
+            <v-row no-gutters>
+                <v-col class="col-xl-12 col-6">
+                    <Educations />
+                </v-col>
+            </v-row>
+            <v-row no-gutters>
+                <v-col class="col-xl-12 col-6">
+                    <ProgrammingSkills />
+                </v-col>
+            </v-row>
+        </v-container>
+    </div>
 </template>
 
 <script>
-import Logo from "~/components/Logo.vue";
-import VuetifyLogo from "~/components/VuetifyLogo.vue";
-
+import MySummary from "@/components/Sections/mySummary.vue";
+import Educations from "@/components/Sections/Educations.vue";
+import ProgrammingSkills from "@/components/Sections/ProgrammingSkills.vue";
 export default {
-  components: {
-    Logo,
-    VuetifyLogo,
-  },
+    components: { MySummary, Educations, ProgrammingSkills }
 };
 </script>
+
+<style lang="scss"></style>
